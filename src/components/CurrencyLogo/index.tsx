@@ -11,7 +11,7 @@ import Logo from '../Logo'
 import CoinLogo from "../pancake/CoinLogo"
 
 const getTokenLogoURL = (address: string) =>
-  `https://github.com/ChewySwap/chewy-tokenlist/blob/main/tokens/addresses/${address}/logo.png`
+  `https://raw.githubusercontent.com/ChewySwap/chewy-tokenlist/main/tokens/addresses/${address}/logo.png`
 
 const StyledEthereumLogo = styled.img<{ size: string }>`
   width: ${({ size }) => size};

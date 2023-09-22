@@ -37,15 +37,15 @@ const config: MenuEntry[] = [
     items: [
       {
         label: 'CHEWY Chart',
-        href: 'https://www.geckoterminal.com/eth/pools/0x95e8b4c4739f06968ce4200d5a776abb7189fe87',
+        href: 'https://dexscreener.com/shibarium/0x324eef33af720ce44deab7e32f4367a82b4ea43b',
       },
       {
-        label: 'PooShib Chart',
-        href: 'https://www.geckoterminal.com/eth/pools/0x95e8b4c4739f06968ce4200d5a776abb7189fe87',
+        label: 'PooShi Chart',
+        href: 'https://dexscreener.com/shibarium/0x715f605613ba572c3322f458dfafd34e8a26aefd',
       },
       {
-        label: 'GeckoTerminal',
-        href: 'https://www.geckoterminal.com/eth/pools/0x95e8b4c4739f06968ce4200d5a776abb7189fe87',
+        label: 'ChewySwap Pairs',
+        href: 'https://dexscreener.com/shibarium/chewyswap',
       },
     ],
   },
@@ -64,7 +64,7 @@ const config: MenuEntry[] = [
     ],
   },
   {
-    label: 'Audits by ContractWolf',
+    label: 'Audits',
     icon: 'AuditIcon',
     items: [
       {
