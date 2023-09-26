@@ -6,8 +6,8 @@
   "dependencies": {
     "@crowdin/crowdin-api-client": "^1.8.16",
     "@ethersproject/experimental": "^5.0.1",
-    "@pancakeswap-libs/sdk": "PooDoge/chewyswap-sdk",
-    "@pancakeswap-libs/uikit": "PooDoge/chewyswap-uikit",
+    "@pancakeswap-libs/sdk": "PooDoge/chewyswap-sdk#de6ed917d496f71842ca96ff6ee6d24e90b8cf31",
+    "@pancakeswap-libs/uikit": "PooDoge/chewyswap-uikit#a0e889162aa95f75d0058184fac4a826fe746afd",
     "@popperjs/core": "^2.4.4",
     "@reach/dialog": "^0.10.3",
     "@reach/portal": "^0.10.3",

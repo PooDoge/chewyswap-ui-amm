@@ -28,7 +28,7 @@ const Menu: React.FC = props => {
   return (
     <UikitMenu
       links={links}
-      priceLink="https://www.coingecko.com/en/coins/dogeshrek"
+      priceLink="https://dexscreener.com/shibarium/0x324eef33af720ce44deab7e32f4367a82b4ea43b"
       account={account as string}
       login={(connectorId: ConnectorId) => {
         if (connectorId === 'walletconnect') {
@@ -47,7 +47,6 @@ const Menu: React.FC = props => {
       currentLang={selectedLanguage?.code || ''}
       langs={allLanguages}
       setLang={setSelectedLanguage}
-      cakePriceUsd={cakePriceUsd}
       profile={{
         username: "Current Chain",
         image: chainImage,

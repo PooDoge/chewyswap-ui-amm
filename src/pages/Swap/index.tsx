@@ -76,6 +76,15 @@ const Swap = () => {
     chainName = 'Shibarium'
   }
 
+  let wrappedToken = ''
+  if (chainId === 2000) {
+    wrappedToken = 'WDOGE'
+  }
+  if (chainId === 109) {
+    wrappedToken = 'BONE'
+  }
+
+
   const [isExpertMode] = useExpertModeManager()
 
   // get custom setting values for user
@@ -416,7 +425,7 @@ const Swap = () => {
               ) : showWrap ? (
                 <Button disabled={Boolean(wrapInputError)} onClick={onWrap} fullWidth>
                   {wrapInputError ??
-                    (wrapType === WrapType.WRAP ? 'Wrap' : wrapType === WrapType.UNWRAP ? 'Unwrap' : null)}
+                    (wrapType === WrapType.WRAP ? `Wrap ${wrappedToken}` : wrapType === WrapType.UNWRAP ? `Unwrap W${wrappedToken}` : null)}
                 </Button>
               ) : noRoute && userHasSpecifiedInputOutput ? (
                 <GreyCard style={{ textAlign: 'center' }}>

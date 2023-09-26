@@ -8,6 +8,7 @@ import { TYPE } from '../../components/Shared'
 
 const { body: Body } = TYPE
 
+
 export function ConfirmAddModalBottom({
   noLiquidity,
   price,

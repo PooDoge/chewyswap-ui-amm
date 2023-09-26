@@ -1969,9 +1969,9 @@
     eslint-plugin-react "^7.21.5"
     eslint-plugin-react-hooks "^4.0.0"
 
-"@pancakeswap-libs/sdk@PooDoge/chewyswap-sdk":
+"@pancakeswap-libs/sdk@PooDoge/chewyswap-sdk#de6ed917d496f71842ca96ff6ee6d24e90b8cf31":
   version "2.4.3"
-  resolved "https://codeload.github.com/PooDoge/chewyswap-sdk/tar.gz/e9b0c6225da8a0249de75f57488b0837546c78fd"
+  resolved "https://codeload.github.com/PooDoge/chewyswap-sdk/tar.gz/de6ed917d496f71842ca96ff6ee6d24e90b8cf31"
   dependencies:
     big.js "^5.2.2"
     decimal.js-light "^2.5.0"
@@ -1980,9 +1980,9 @@
     tiny-warning "^1.0.3"
     toformat "^2.0.0"
 
-"@pancakeswap-libs/uikit@PooDoge/chewyswap-uikit":
-  version "0.10.3"
-  resolved "https://codeload.github.com/PooDoge/chewyswap-uikit/tar.gz/a02a9e661bc98e42edcb2ac6ea321074cb5b4dbe"
+"@pancakeswap-libs/uikit@PooDoge/chewyswap-uikit#a0e889162aa95f75d0058184fac4a826fe746afd":
+  version "0.10.4"
+  resolved "https://codeload.github.com/PooDoge/chewyswap-uikit/tar.gz/a0e889162aa95f75d0058184fac4a826fe746afd"
   dependencies:
     "@types/lodash" "^4.14.162"
     "@types/styled-system" "^5.1.10"

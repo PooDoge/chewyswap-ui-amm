@@ -21,11 +21,16 @@ const config: MenuEntry[] = [
       }
     ],
   },
-  /* {
+  {
     label: 'Farms',
     icon: 'FarmIcon',
-    href: 'https://app.chewyswap.dog/farms'
-  }, */
+    href: 'https://farms.chewyswap.dog/farms'
+  },
+  {
+    label: 'Pools',
+    icon: 'PoolIcon',
+    href: 'https://farms.chewyswap.dog/treatbowl'
+  },
   // {
   //   label: 'Lottery',
   //   icon: 'TicketIcon',
@@ -44,7 +49,7 @@ const config: MenuEntry[] = [
         href: 'https://dexscreener.com/shibarium/0x715f605613ba572c3322f458dfafd34e8a26aefd',
       },
       {
-        label: 'ChewySwap Pairs',
+        label: 'ChewySwap Pools',
         href: 'https://dexscreener.com/shibarium/chewyswap',
       },
     ],

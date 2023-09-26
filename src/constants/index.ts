@@ -16,10 +16,11 @@ type ChainTokenList = {
   readonly [chainId in ChainId]: Token[]
 }
 
-export const WWETH = new Token(ChainId.MAINNET, '0x8df9B21945ebaa75424730F85eCFf426C35F5EF8', 18, 'WETH', 'Wrapped ETH')
+export const WWETH = new Token(ChainId.MAINNET, '0x8df9B21945ebaa75424730F85eCFf426C35F5EF8', 18, 'WWETH', 'Wrapped ETH')
+export const USDT = new Token(ChainId.MAINNET, '0xaB082b8ad96c7f47ED70ED971Ce2116469954cFB', 18, 'USDT', 'Tether')
 export const WBONE = new Token(ChainId.MAINNET, '0xC76F4c819D820369Fb2d7C1531aB3Bb18e6fE8d8', 18, 'WBONE', 'Wrapped BONE')
-// export const CHEWY = new Token(ChainId.MAINNET, '0x2BE0096B24343549E34224aa9aa297E99961023D', 18, 'Chewy', 'Chewy Token')
-// export const POOSHIB = new Token(ChainId.MAINNET, '0x2BE0096B24343549E34224aa9aa297E99961023D', 18, 'PooShib', 'PooShib Token')
+export const CHEWY = new Token(ChainId.MAINNET, '0x2761723006d3Eb0d90B19B75654DbE543dcd974f', 18, 'CHEWY', 'ChewySwap')
+export const POOSHI = new Token(ChainId.MAINNET, '0x5Bc161445f32170653eB61bdeCf80c9D7F5C345a', 9, 'PooShi', 'PooShi Token')
 
 
 export const DOGECORN = new Token(ChainId.DOGECHAIN, '0x8df9B21945ebaa75424730F85eCFf426C35F5EF8', 18, 'DOGECORN', 'Dogecorn Token')
@@ -36,7 +37,7 @@ const WETH_ONLY: ChainTokenList = {
 // used to construct intermediary pairs for trading
 export const BASES_TO_CHECK_TRADES_AGAINST: ChainTokenList = {
   ...WETH_ONLY,
-  [ChainId.MAINNET]: [...WETH_ONLY[ChainId.MAINNET], WWETH],
+  [ChainId.MAINNET]: [...WETH_ONLY[ChainId.MAINNET], CHEWY, USDT, WWETH],
   [ChainId.DOGECHAIN]: [...WETH_ONLY[ChainId.DOGECHAIN], DOGECORN, DOGESHREK, DC, KIBBY]
 }
 
@@ -60,7 +61,7 @@ export const SUGGESTED_BASES: ChainTokenList = {
 // used to construct the list of all pairs we consider by default in the frontend
 export const BASES_TO_TRACK_LIQUIDITY_FOR: ChainTokenList = {
   ...WETH_ONLY,
-  [ChainId.MAINNET]: [...WETH_ONLY[ChainId.MAINNET], WWETH],
+  [ChainId.MAINNET]: [...WETH_ONLY[ChainId.MAINNET], WWETH, USDT],
   [ChainId.DOGECHAIN]: [...WETH_ONLY[ChainId.DOGECHAIN], DOGECORN, DC, DOGESHREK]
 }
 
@@ -176,7 +177,7 @@ export const ALLOWED_PRICE_IMPACT_LOW: Percent = new Percent(JSBI.BigInt(100), B
 export const ALLOWED_PRICE_IMPACT_MEDIUM: Percent = new Percent(JSBI.BigInt(400), BIPS_BASE) // 4%
 export const ALLOWED_PRICE_IMPACT_HIGH: Percent = new Percent(JSBI.BigInt(1000), BIPS_BASE) // 10%
 // if the price slippage exceeds this number, force the user to type 'confirm' to execute
-export const PRICE_IMPACT_WITHOUT_FEE_CONFIRM_MIN: Percent = new Percent(JSBI.BigInt(2000), BIPS_BASE) // 20%
+export const PRICE_IMPACT_WITHOUT_FEE_CONFIRM_MIN: Percent = new Percent(JSBI.BigInt(3000), BIPS_BASE) // 20%
 // for non expert mode disable swaps above this
 export const BLOCKED_PRICE_IMPACT_NON_EXPERT: Percent = new Percent(JSBI.BigInt(6000), BIPS_BASE) // 60%
 
