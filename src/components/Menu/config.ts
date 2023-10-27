@@ -4,7 +4,7 @@ const config: MenuEntry[] = [
   {
     label: 'Home',
     icon: 'HomeIcon',
-    href: 'https://farms.chewyswap.dog/',
+    href: 'https://farm.ipfs.chewyswap.dog/',
   },
   {
     label: 'Trade',
@@ -24,12 +24,12 @@ const config: MenuEntry[] = [
   {
     label: 'Farms',
     icon: 'FarmIcon',
-    href: 'https://farms.chewyswap.dog/farms'
+    href: 'https://farm.ipfs.chewyswap.dog/farms'
   },
   {
     label: 'Pools',
     icon: 'PoolIcon',
-    href: 'https://farms.chewyswap.dog/treatbowl'
+    href: 'https://farm.ipfs.chewyswap.dog/treatbowl'
   },
   // {
   //   label: 'Lottery',
