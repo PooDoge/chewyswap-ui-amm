@@ -122,11 +122,17 @@ export default function RemoveLiquidity({
       { name: 'chainId', type: 'uint256' },
       { name: 'verifyingContract', type: 'address' },
     ]
+
+
     // LP's are Named Different on Dogechain Deployment
     // Handles name change to make remove LP work for both
-    let isDC = false;
+    let isDC = false
+    let currentChain = 109
+    let curSpender = '0x2875F2D86d83635A859029872e745581530cEec7'
     if (chainId === 2000) {
-      isDC = true;
+      isDC = true
+      currentChain = 2000
+      curSpender = '0x45AFCf57F7e3F3B9cA70335E5E85e4F77DcC5087'
     }
     const domain = {
       name: isDC ? 'DogeShrek Liquidity Token' : 'Chewy LPs',
@@ -143,7 +149,7 @@ export default function RemoveLiquidity({
     ]
     const message = {
       owner: account,
-      spender: ROUTER_ADDRESS,
+      spender: curSpender,
       value: liquidityAmount.raw.toString(),
       nonce: nonce.toHexString(),
       deadline: deadlineForSignature,
@@ -172,6 +178,7 @@ export default function RemoveLiquidity({
       .catch((e) => {
         // for all errors other than 4001 (EIP-1193 user rejected request), fall back to manual approve
         if (e?.code !== 4001) {
+          console.log(e.code);
           approveCallback()
         }
       })
@@ -536,7 +543,7 @@ export default function RemoveLiquidity({
                         <RowFixed>
                           <CurrencyLogo currency={currencyB} style={{ marginRight: '12px' }} />
                           <Text fontSize="24px" id="remove-liquidity-tokenb-symbol">
-                            {currencyB?.symbol}
+                            { currencyB?.symbol }
                           </Text>
                         </RowFixed>
                       </RowBetween>
@@ -548,7 +555,7 @@ export default function RemoveLiquidity({
                                 currencyB === ETHER ? WETH[chainId].address : currencyIdB
                               }`}
                             >
-                              Receive WBONE
+                              Receive Wrapped
                             </StyledInternalLink>
                           ) : oneCurrencyIsWETH ? (
                             <StyledInternalLink
@@ -556,7 +563,7 @@ export default function RemoveLiquidity({
                                 currencyA && currencyEquals(currencyA, WETH[chainId]) ? 'ETH' : currencyIdA
                               }/${currencyB && currencyEquals(currencyB, WETH[chainId]) ? 'ETH' : currencyIdB}`}
                             >
-                              Receive BONE
+                              Receive Unwrapped
                             </StyledInternalLink>
                           ) : null}
                         </RowBetween>

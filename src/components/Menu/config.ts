@@ -4,7 +4,7 @@ const config: MenuEntry[] = [
   {
     label: 'Home',
     icon: 'HomeIcon',
-    href: 'https://chewyswap.dog/',
+    href: 'https://farms.chewyswap.dog/',
   },
   {
     label: 'Trade',
@@ -41,6 +41,10 @@ const config: MenuEntry[] = [
     icon: 'InfoIcon',
     items: [
       {
+        label: 'CoinGecko',
+        href: 'https://www.coingecko.com/en/coins/chewyswap',
+      },
+      {
         label: 'CHEWY Chart',
         href: 'https://dexscreener.com/shibarium/0x324eef33af720ce44deab7e32f4367a82b4ea43b',
       },
@@ -58,6 +62,10 @@ const config: MenuEntry[] = [
     label: 'More',
     icon: 'MoreIcon',
     items: [
+      {
+        label: "Create Token",
+        href: "https://gempad.app/create-token",
+      },
       {
         label: "Github",
         href: "https://github.com/ChewySwap/",

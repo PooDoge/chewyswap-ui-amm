@@ -87,3 +87,8 @@ export function useMulticallContract(): Contract | null {
   const { chainId } = useActiveWeb3React()
   return useContract(chainId && MULTICALL_NETWORKS[chainId], MULTICALL_ABI, false)
 }
+
+export function useShibMulticallContract(): Contract | null {
+  const { chainId } = useActiveWeb3React()
+  return useContract('0xFa806Ad303c2C333744601fea21f39dE07Fa89c6', MULTICALL_ABI, false)
+}

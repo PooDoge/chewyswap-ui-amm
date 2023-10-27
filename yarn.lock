@@ -1969,9 +1969,9 @@
     eslint-plugin-react "^7.21.5"
     eslint-plugin-react-hooks "^4.0.0"
 
-"@pancakeswap-libs/sdk@PooDoge/chewyswap-sdk#de6ed917d496f71842ca96ff6ee6d24e90b8cf31":
+"@pancakeswap-libs/sdk@PooDoge/chewyswap-sdk#563ec38d8247c1e9815d6361bb5ef94a427c57b6":
   version "2.4.3"
-  resolved "https://codeload.github.com/PooDoge/chewyswap-sdk/tar.gz/de6ed917d496f71842ca96ff6ee6d24e90b8cf31"
+  resolved "https://codeload.github.com/PooDoge/chewyswap-sdk/tar.gz/563ec38d8247c1e9815d6361bb5ef94a427c57b6"
   dependencies:
     big.js "^5.2.2"
     decimal.js-light "^2.5.0"

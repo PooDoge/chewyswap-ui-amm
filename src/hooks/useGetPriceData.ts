@@ -1,7 +1,8 @@
 import { useEffect, useState } from 'react'
 import BigNumber from 'bignumber.js'
+import { MULTICALL_ABI, MULTICALL_NETWORKS } from 'constants/multicall'
 import { useActiveWeb3React } from 'hooks'
-import { useMulticallContract, useFeedContract } from './useContract'
+import { useMulticallContract, useFeedContract, useShibMulticallContract } from './useContract'
 import ERC20_INTERFACE from '../constants/abis/erc20'
 import priceContracts from '../constants/eggPriceContracts'
 
@@ -18,23 +19,33 @@ type ApiResponse = {
  */
 const api = 'https://api.pancakeswap.com/api/v1/price'
 
+
 const useGetPriceData = () => {
   const [data, setData] = useState<number>(0)
+  // const { account, chainId, library } = useActiveWeb3React()
 
-  const multicallContract = useMulticallContract();
-  const dogeOracle = useFeedContract();
+  const multicallContract = useShibMulticallContract();
+  // const multicallContract = useContract('0xFa806Ad303c2C333744601fea21f39dE07Fa89c6', MULTICALL_ABI, false)
+  // const dogeOracle = useFeedContract();w
 
   useEffect(() => {
     const fetchData = async () => {
       try {
-        if(multicallContract && dogeOracle){
-          const {cakeAddress, wwdogeAddress, lpAddress} = priceContracts;
+        if(multicallContract){
+          const {chewyAddress, wwdogeAddress, usdtAddress, lpAddress} = priceContracts;
           const calls = [
-            [cakeAddress, ERC20_INTERFACE.encodeFunctionData("balanceOf", [lpAddress])],
-            [wwdogeAddress, ERC20_INTERFACE.encodeFunctionData("balanceOf", [lpAddress])]
+            [chewyAddress, ERC20_INTERFACE.encodeFunctionData("balanceOf", [lpAddress])],
+            [usdtAddress, ERC20_INTERFACE.encodeFunctionData("balanceOf", [lpAddress])]
           ];
-          
+
           const [resultsBlockNumber, result] = await multicallContract.aggregate(calls);
+          const [cakeAmount, busdAmount] = result.map(r=>ERC20_INTERFACE.decodeFunctionResult("balanceOf", r));
+          const cake = new BigNumber(cakeAmount);
+          const busd = new BigNumber(busdAmount * 10 ** 12);
+          const cakePrice = busd.div(cake).toNumber();
+          setData(cakePrice)
+          
+          /* const [resultsBlockNumber, result] = await multicallContract.aggregate(calls);
           const [cakeAmount, busdAmount] = result.map(r=>ERC20_INTERFACE.decodeFunctionResult("balanceOf", r));
 
           const dogeUSD = await dogeOracle.getDogePrice();
@@ -48,9 +59,7 @@ const useGetPriceData = () => {
           const cakeUSDPrice = cakePrice * dogesPrice;
           console.log("Price Data:");
           console.log(cakeUSDPrice);
-          setData(cakeUSDPrice)
-        } else {
-          setData(0.5)
+          setData(cakeUSDPrice) */
         }
       } catch (error) {
         console.error('Unable to fetch price data:', error)
@@ -58,9 +67,10 @@ const useGetPriceData = () => {
     }
 
     fetchData()
-  }, [multicallContract, dogeOracle])
+  }, [multicallContract])
 
   return data
 }
 
 export default useGetPriceData
+
