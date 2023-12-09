@@ -1,5 +1,5 @@
 import { CurrencyAmount, JSBI, Token, Trade } from '@pancakeswap-libs/sdk'
-import React, { useCallback, useContext, useEffect, useMemo, useState } from 'react'
+import React, { useCallback, useContext, useEffect, useMemo, useRef, useState } from 'react'
 import { ArrowDown } from 'react-feather'
 import { CardBody, SwapVertIcon, Button, IconButton, Text } from '@pancakeswap-libs/uikit'
 import { ThemeContext } from 'styled-components'
@@ -41,7 +41,23 @@ import AppBody from '../AppBody'
 
 const { main: Main } = TYPE
 
+const swapMessages = [
+  '🎄 Happy Holidays Chewy Fam! ⛄️',
+  '🎄 Merry ChewyMas! ❄️',
+  '🎅 Making a Token List... 🎄🍖',
+  '🎅 Checking it Twice... 🎅',
+  '🎄 For all Good Doggos ❤️',
+  '🍻🎄 To Good Health! 🎄🎅',
+  '✝️❄️ God Bless Us, Everyone! 🎄🎅',
+  '🎅 HO HO HO! 🎅',
+  '🍻🎄 Fetching More Nog 🍻🎄'
+]
+
 const Swap = () => {
+
+
+  const randomMessageNum = useRef(0)
+
   const loadedUrlParams = useDefaultsFromURLSearch()
 
   // token warning stuff
@@ -206,6 +222,9 @@ const Swap = () => {
   const { priceImpactWithoutFee } = computeTradePriceBreakdown(trade)
 
   const handleSwap = useCallback(() => {
+
+    randomMessageNum.current = Math.floor(Math.random() * swapMessages.length);
+
     if (priceImpactWithoutFee && !confirmPriceImpactWithoutFee(priceImpactWithoutFee)) {
       return
     }
@@ -333,7 +352,8 @@ const Swap = () => {
             swapErrorMessage={swapErrorMessage}
             onDismiss={handleConfirmDismiss}
           />
-          <PageHeader title="ChewySwap" description={`Trade tokens on ${chainName}`} />
+          {/* Trade tokens on ${chainName} */}
+          <PageHeader title="ChewySwap" description={swapMessages[randomMessageNum.current]} />
           <CardBody>
             <AutoColumn gap="md">
               <CurrencyInputPanel

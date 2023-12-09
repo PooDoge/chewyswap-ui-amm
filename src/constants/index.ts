@@ -17,6 +17,7 @@ type ChainTokenList = {
 }
 
 export const WWETH = new Token(ChainId.MAINNET, '0x8df9B21945ebaa75424730F85eCFf426C35F5EF8', 18, 'WWETH', 'Wrapped ETH')
+export const LEASH = new Token(ChainId.MAINNET, '0x65218A41Fb92637254B4f8c97448d3dF343A3064', 18, 'LEASH', 'Doge Killer')
 export const USDT = new Token(ChainId.MAINNET, '0xaB082b8ad96c7f47ED70ED971Ce2116469954cFB', 18, 'USDT', 'Tether')
 export const WBONE = new Token(ChainId.MAINNET, '0xC76F4c819D820369Fb2d7C1531aB3Bb18e6fE8d8', 18, 'WBONE', 'Wrapped BONE')
 export const CHEWY = new Token(ChainId.MAINNET, '0x2761723006d3Eb0d90B19B75654DbE543dcd974f', 18, 'CHEWY', 'ChewySwap')
@@ -37,8 +38,8 @@ const WETH_ONLY: ChainTokenList = {
 // used to construct intermediary pairs for trading
 export const BASES_TO_CHECK_TRADES_AGAINST: ChainTokenList = {
   ...WETH_ONLY,
-  [ChainId.MAINNET]: [...WETH_ONLY[ChainId.MAINNET], CHEWY, USDT, WWETH],
-  [ChainId.DOGECHAIN]: [...WETH_ONLY[ChainId.DOGECHAIN], DOGECORN, DOGESHREK, DC, KIBBY]
+  [ChainId.MAINNET]: [...WETH_ONLY[ChainId.MAINNET], CHEWY, USDT, WWETH, LEASH],
+  [ChainId.DOGECHAIN]: [...WETH_ONLY[ChainId.DOGECHAIN], DOGECORN, DOGESHREK, DC]
 }
 
 /**
